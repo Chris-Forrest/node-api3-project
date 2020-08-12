@@ -18,8 +18,16 @@ router.post('/', checkUser(), (req, res) => {
   })
 });
 
-router.post('/:id/posts', (req, res) => {
-  // do your magic!
+router.post('/:id/posts', checkPost(), checkUserID(), (req, res) => {
+  req.body.user_id = req.params.id;
+  postDB.insert(req.body)
+    .then(post => {
+      res.status(200).json(post)
+    })
+    .catch(err => {
+      console.log(err.stack)
+      res.status(500).json({ message: "Cannot post message"})
+    })
 });
 
 router.get('/', (req, res) => {
