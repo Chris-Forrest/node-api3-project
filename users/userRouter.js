@@ -1,11 +1,14 @@
 const express = require('express');
 const userDB = require('./userDb');
 const postDB = require('../posts/postDb');
+const { checkUserId } = require('../middleware/validation');
+const { checkUser } = require('../middleware/validation');
+const { checkPost } = require('../middleware/validation');
 
 const router = express.Router();
 
-router.post('/', (req, res) => {
-  // do your magic!
+router.post('/', checkUser(), (req, res) => {
+  
 });
 
 router.post('/:id/posts', (req, res) => {
