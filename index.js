@@ -5,6 +5,9 @@ const postRouter = require('./posts/postRouter');
 
 const port = 7800;
 
+server.use("/users", userRouter);
+server.use(postRouter);
+
 /***************error middleware that catches any errors from other middleware functions **************************/
 server.use((err, req, res, next) => {
     console.log(err)
