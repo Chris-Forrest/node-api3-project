@@ -5,7 +5,8 @@ server.use(express.json())
 server.use(logger);
 
 server.get('/', (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  res.send(`<h2>Let's write some middleware!  MVP met and stretch for the posts route done also so you can use /users , /users/:id
+   /posts, and /posts/:id </h2>`);
 });
 
 //custom middleware
