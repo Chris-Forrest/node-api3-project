@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "server": "nodemon --require dotenv/config index.js",
-        "start": "node server.js"
+        "start": "node index.js"
     },
     "repository": {
         "type": "git",
