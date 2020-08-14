@@ -3,7 +3,7 @@ const server = require('./server');
 const userRouter = require('./users/userRouter');
 const postRouter = require('./posts/postRouter');
 
-const port = 7800;
+const port = process.env.PORT || 7800;
 
 server.use("/users", userRouter);
 server.use("/posts", postRouter);
