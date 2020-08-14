@@ -2,9 +2,10 @@
 const server = require('./server');
 const userRouter = require('./users/userRouter');
 const postRouter = require('./posts/postRouter');
+const welcomeRouter = require('./welcome/welcome-router')
 
 const port = process.env.PORT || 7800;
-
+server.use("/",welcomeRouter)
 server.use("/users", userRouter);
 server.use("/posts", postRouter);
 
