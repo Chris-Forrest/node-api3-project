@@ -30,14 +30,26 @@ router.delete('/:id',validatePostId, async (req, res) => {
   }
 });
 
-router.put('/:id',validatePostId, validatePost, async (req, res) => {
+router.put('/:id',validatePostId,  async (req, res) => {
   try{
-    const post = await postDB.update(req.post, req.body)
+    const post = await postDB.update(req.params.id , req.body)
     res.status(200).json(post)
   }catch(err){
+    console.log(err)
     res.status(500).json({ message: "Error editing the post."})
   }
-});
+}); 
+/*
+router.put('/:id', validatePostId ,  (req, res) => {
+  postDB.update(req.params.id , req.body)
+    .then(post => {
+      res.status(200).json(post)
+    })
+    .catch(err => {
+      console.log(err.stack)
+      res.status(500).json({ message: " Cannot update user."})
+    })
+}); */
 
 // custom middleware
 
